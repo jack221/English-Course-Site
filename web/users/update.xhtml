@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>English Course</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class = "container">
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label for="id"></label>
+                            <h:inputHidden class="form-control" id="id" value="#{UserController.user.id}" />
+                            
+                            <label for="nickname">Nickname</label>
+                            <h:inputText class="form-control" id="nickname" value="#{UserController.user.nickname}" />
+
+                            <label for="password" >Password </label>
+                            <h:inputText class="form-control" id="password" value="#{UserController.user.password}" />
+
+                            <label for="name_surname">Name Surname </label>
+                            <h:inputText class="form-control" id="name_surname" value="#{UserController.user.nameSurname}" />
+
+                            <label for="address">Address</label>
+                            <h:inputText class="form-control" id="address" value="#{UserController.user.address}" />
+
+                            <label for="country">Country</label>
+                            <h:inputText class="form-control" id="country" value="#{UserController.user.country}" />
+
+                            <label for="update"></label>
+                            <h:commandButton class="btn btn-primary" value="update" action="#{UserController.update()}"/>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

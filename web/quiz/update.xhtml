@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>English Course</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class = "container">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="id"></label>
+                            <h:inputHidden class="form-control" id="id" value="#{QuizController.quiz.id}" />
+                            <label for="name">Name</label>
+                            <h:inputText class="form-control" id="name" value="#{QuizController.quiz.name}" />
+                            <label for="comment" >Comment</label>
+                            <h:inputTextarea class="form-control" id="comment" value="#{QuizController.quiz.comment}" />
+                            <label for="userListBox">User</label>
+                            <h:selectOneMenu value="#{QuizController.selectedUserId}" id="userListBox" styleClass="custom-select">
+                                <f:selectItems value="#{QuizController.userController.users}" var="user" itemValue="#{user.id}" itemLabel="#{user.nickname}"/>
+                            </h:selectOneMenu>
+
+                            <label for="update"></label>
+                            <h:commandButton id="update" class="btn btn-primary" value="update" action="#{QuizController.update()}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

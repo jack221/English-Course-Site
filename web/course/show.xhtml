@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>English Course</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class = "container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h:form id="courses-table">
+                            <h:dataTable styleClass="table table-striped table-bordered" style="width:100%" value = "#{CourseController.courseList}" var = "course">
+
+                                <h:column>
+                                    <f:facet name = "header">ID</f:facet> 				
+                                        #{course.id}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name = "header">NAME</f:facet>
+                                        #{course.name}
+                                </h:column>
+                                <h:column >
+                                    <f:facet name = "header" >LESSON TEXT</f:facet>
+                                        #{course.lessonText} 
+                                </h:column>
+                                <h:column>
+                                    <f:facet name = "header">USER NICKNAME</f:facet>
+                                        #{course.user.nickname}
+                                </h:column>
+                                <h:column>  
+                                <f:facet name = "header">Category</f:facet> 
+                                <ul>
+                                    <ui:repeat value="#{CourseController.categoryController.getCourseCategoryList(course.id)}" var="category">
+                                        <li>
+                                            #{category.text}
+                                        </li>
+                                        
+                                    </ui:repeat>
+                                </ul>
+
+                            </h:column>
+                                <h:column>
+                                    <f:facet name = "header">DELETE</f:facet>
+                                    <label id="delete"></label>
+                                    <h:commandButton id="delete" class="btn btn-sm btn-danger" value="Delete" action="#{CourseController.delete(course)}"/>
+
+                                </h:column>
+                                <h:column>
+                                    <f:facet name = "header">UPDATE</f:facet>
+                                    <label id="update"></label>
+                                    <h:commandButton id="update" class="btn btn-sm btn-success" value="Update" action="#{CourseController.update(course)}"/>
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
+                    </div>
+                    <div class="col-md-6">
+                        <label id="create">
+                            <h:commandButton id="create" class="btn btn-sm btn-success" action="/course/create" value="Create"/>
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

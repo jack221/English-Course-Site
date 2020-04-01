@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>English Course</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class = "container">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <h:inputText class="form-control" id="name" value="#{CourseController.course.name}" />
+                            <label for="lesson_text">Lesson Text</label>
+                            <h:inputText class="form-control" id="lesson_text" value="#{CourseController.course.lessonText}" />
+                            <label for="userListBox">User</label>
+                            <h:selectOneMenu value="#{CourseController.selectedUserId}" id="userListBox" styleClass="custom-select">
+                                <f:selectItems value="#{CourseController.userController.users}" var="user" itemValue="#{user.id}" itemLabel="#{user.nickname}"/>
+                            </h:selectOneMenu>
+
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="addCategoryList">Adding Category for Course</label>
+                            <h:selectManyListbox value="#{CourseController.selectedCategoryIds}" id="addCategoryList" styleClass="custom-select">
+                                <f:selectItems value="#{CourseController.categoryController.categoryList}" var="category" itemValue="#{category.id}" itemLabel="#{category.text}"/>
+                            </h:selectManyListbox>
+
+                            <label for="create"></label>
+                            <h:commandButton class="btn btn-primary" value="create" action="#{CourseController.create()}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

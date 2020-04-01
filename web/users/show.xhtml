@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>English Course</title>
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+    </h:head>
+    <h:body>
+
+        <div class = "container">
+            <div class="row">
+                <div class="col-sm">
+                    <h:form >
+                        <h:dataTable styleClass="table table-striped table-bordered" style="width:100%" value = "#{UserController.users}" var = "user">
+
+                            <h:column>  
+                                <f:facet name = "header">ID</f:facet> 				
+                                    #{user.id}
+                            </h:column>
+                            <h:column>
+                                <f:facet name = "header">NICKNAME</f:facet>
+                                    #{user.nickname}
+                            </h:column>
+                            <h:column >
+                                <f:facet name = "header" >PASSWORD</f:facet>
+                                    #{user.password} 
+                            </h:column>
+                            <h:column>
+                                <f:facet name = "header">NAME SURNAME</f:facet>
+                                    #{user.nameSurname}
+                            </h:column>
+                            <h:column>
+                                <f:facet name = "header">ADDRESS</f:facet>
+                                    #{user.address}
+                            </h:column>
+                            <h:column>
+                                <f:facet name = "header">COUNTRY</f:facet>
+                                    #{user.country}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name = "header">DELETE</f:facet>
+                                <h:commandButton class="btn btn-sm btn-danger" value="Delete" action="#{UserController.delete(user)}"/>
+                               
+                            </h:column>
+                            <h:column>
+                                <f:facet name = "header">UPDATE</f:facet>
+                                <h:commandButton class="btn btn-sm btn-success" value="Update" action="#{UserController.update(user)}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+                </div>
+                <div class="col-sm">
+                    <h:form id="general-form">
+                        <label id="create">User oluşturmak için Create tuşuna basınız
+                            <h:commandButton id="create" class="btn btn-sm btn-success" action="/users/create" value="Create"/>
+                        </label>
+                    </h:form>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </h:body>
+</html>
+
