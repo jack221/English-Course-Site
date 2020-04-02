@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import java.sql.ResultSet;
@@ -13,10 +8,6 @@ import sqlConnection.SQLConnection;
 import entity.User;
 import java.sql.Connection;
 
-/**
- *
- * @author ERDEM
- */
 public class UserDAO {
 
     private SQLConnection sql;
